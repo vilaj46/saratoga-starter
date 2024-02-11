@@ -3,18 +3,33 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import SectionTitle from '../Common/SectionTitle'
+import { ug_video } from '../../constants/images'
+import config from '../../constants/config'
 
 import ModalVideo from 'react-modal-video'
+import { Bnb } from '../../types/Bnb'
 
 const Video = () => {
 	const [isOpen, setOpen] = useState(false)
+	const handleClickPlay = () => setOpen(true)
+
+	// TODO: Brunswick video
+	const isBrunswick = config.bnb === Bnb.Brunswick
+	if (isBrunswick) {
+		return null
+	}
+
+	const title = isBrunswick ? '' : 'Envision Your Stay'
+	const paragraph = isBrunswick
+		? ''
+		: 'Step inside our historic mansion of 118 years, featuring a classic wraparound porch, airy living areas with period antiques, and over one acre of Perennial gardens, fountains, and a seasonal Romanesque-style pool. Included in your stay is a freshly-prepared breakfast from our Cordon Bleu trained chef, homemade baked goods served in the afternoon, and exemplary concierge service.'
 
 	return (
 		<section className='relative z-10 py-16 md:py-20 lg:py-28'>
 			<div className='container'>
 				<SectionTitle
-					title='We are ready to help'
-					paragraph='There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form.'
+					title={title}
+					paragraph={paragraph}
 					center
 					mb='80px'
 				/>
@@ -27,14 +42,14 @@ const Video = () => {
 						>
 							<div className='relative aspect-[77/40] items-center justify-center'>
 								<Image
-									src='/images/video/video.jpg'
+									src={ug_video}
 									alt='video image'
 									fill
 								/>
 								<div className='absolute right-0 top-0 flex h-full w-full items-center justify-center'>
 									<button
 										aria-label='video play button'
-										onClick={() => setOpen(true)}
+										onClick={handleClickPlay}
 										className='flex h-[70px] w-[70px] items-center justify-center rounded-full bg-white bg-opacity-75 text-primary transition hover:bg-opacity-100'
 									>
 										<svg
@@ -58,7 +73,7 @@ const Video = () => {
 				autoplay={true}
 				start={true}
 				isOpen={isOpen}
-				videoId='L61p2uyiMSo'
+				videoId='lLu-Hkdum0I'
 				onClose={() => setOpen(false)}
 			/>
 

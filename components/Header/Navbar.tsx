@@ -28,8 +28,6 @@ const Navbar = ({
 	const menu: Array<Menu> =
 		config.bnb === Bnb.Brunswick ? menuData.brunswick : menuData.unionGables
 
-	console.log(usePathName)
-
 	return (
 		<nav
 			className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${navbarClassName}`}
@@ -38,7 +36,6 @@ const Navbar = ({
 		>
 			<ul className='block lg:flex lg:space-x-12'>
 				{menu.map((menuItem, index) => {
-					console.log(menuItem.path)
 					return (
 						<li
 							className='group relative'

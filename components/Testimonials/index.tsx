@@ -5,28 +5,29 @@ import SingleTestimonial from './SingleTestimonial'
 const testimonialData: Testimonial[] = [
 	{
 		id: 1,
-		name: 'Musharof Chy',
-		designation: 'Founder @TailGrids',
+		name: 'Marlyn P',
+		designation: 'Just Perfect!!!',
 		content:
-			"Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+			"What a delightful, charming B&B. The staff is friendly and accommodating. Breakfast was wonderful and Mr. & Mrs. White made sure that all of my needs were met. If ever you are in the area, I would highly recommend staying here. It was spotless! So much better than the big hotels! Enjoy your stay at this lovely building built in the early 1900's.",
 		image: '/images/testimonials/auth-01.png',
 		star: 5,
 	},
 	{
 		id: 2,
-		name: 'Devid Weilium',
-		designation: 'Founder @UIdeck',
+		name: 'Patricia W',
+		designation:
+			'Chad and Sara are fantastic and the B&B is perfectly located',
 		content:
-			"Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+			'Had a wonderful time with my family. We had three rooms and everyone was extremely satisfied. Chad and Sara were very attentive. They made it feel like a home away from home. The B&B is perfectly located in between downtown and the race track. Already planning next year’s visit.',
 		image: '/images/testimonials/auth-02.png',
 		star: 5,
 	},
 	{
 		id: 3,
-		name: 'Lethium Frenci',
-		designation: 'Founder @Lineicons',
+		name: 'Stephen W',
+		designation: 'A truly lovely experience',
 		content:
-			"Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
+			"Took my in-laws away for a few days in Saratoga to enjoy the town and the races. Our stay at Union Gabled was among the highlights of a great excursion. He rooms are classically appointed with a Victorian feel that permeates every lovely detail. The grounds exquisite, the pool pristine, the bed rooms are spotless and beyond comfortable. The service was far beyond any experience I have had at the many B&Bs where I've stayed. Conscientious, thorough, very warm and welcoming.",
 		image: '/images/testimonials/auth-03.png',
 		star: 5,
 	},
@@ -37,8 +38,14 @@ const Testimonials = () => {
 		<section className='dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28'>
 			<div className='container'>
 				<SectionTitle
-					title='What Our Users Says'
-					paragraph='There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form.'
+					title='What Our Visitors Say'
+					paragraph='Built in 1901 and nicknamed the ‘Sunnyside House’
+
+					Best of Saratoga Region for Six Years in a Row
+					
+					Tripadvisor Award of Excellence and Green Leader Hotel Awards
+					
+					Glorious Gardens Award and Soroptimist Best Garden Award'
 					center
 				/>
 

@@ -161,14 +161,15 @@ const Header = () => {
 																	: 'hidden'
 															}`}
 														>
-															{menuItem.submenu.map(
+															{menuItem.submenu?.map(
 																(
 																	submenuItem,
 																	index
 																) => (
 																	<Link
 																		href={
-																			submenuItem.path
+																			submenuItem.path ??
+																			''
 																		}
 																		key={
 																			index

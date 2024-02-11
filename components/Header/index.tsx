@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 
-import _ from '../../constants/en-us.json'
+import _ from '../../public/en-us.json'
 
 import Image from 'next/image'
 import Link from 'next/link'

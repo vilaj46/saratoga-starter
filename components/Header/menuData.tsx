@@ -1,4 +1,4 @@
-import _ from '../../constants/en-us.json'
+import _ from '../../public/en-us.json'
 import { Menu } from '../../types/menu'
 import routes from '../../constants/routes'
 

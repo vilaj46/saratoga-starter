@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 import _ from '../../public/en-us.json'
+import config from '../../constants/config'
 
 import Link from 'next/link'
 
@@ -10,6 +11,8 @@ import routes from '../../constants/routes'
 import ThemeToggler from './ThemeToggler'
 import Logo from './Logo'
 import Navbar from './Navbar'
+import { Bnb } from '../../types/Bnb'
+import { useBnb } from '../../hooks/useBnb'
 
 const Header = () => {
 	// Navbar toggle
@@ -46,6 +49,12 @@ const Header = () => {
 		? 'dark:bg-gray-dark dark:shadow-sticky-dark fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition'
 		: 'absolute bg-transparent'
 
+	const { isBrunswick } = useBnb()
+
+	const bookNowColor = isBrunswick
+		? 'hover:brunswick-primary bg-brunswick-primary-hover'
+		: 'hover:ug-primary bg-ug-primary-hover'
+
 	return (
 		<>
 			<header
@@ -75,7 +84,7 @@ const Header = () => {
 									TODO: What should be here?
 								</Link> */}
 								<Link
-									className='uppercase ease-in-up shadow-btn hover:shadow-btn-hover hidden rounded-sm bg-primary px-8 py-3 text-base font-medium text-white transition duration-300 hover:bg-opacity-90 md:block md:px-9 lg:px-6 xl:px-9'
+									className={`uppercase ease-in-up shadow-btn hover:shadow-btn-hover hidden rounded-sm px-8 py-3 text-base font-medium text-white transition duration-300 hover:bg-opacity-90 md:block md:px-9 lg:px-6 xl:px-9 ${bookNowColor}`}
 									href={routes.resNexus}
 								>
 									{_.BookNow}

@@ -7,10 +7,8 @@ import config from "../constants/config"
 export const useBnb = () => {
   const isBrunswick = config.bnb === Bnb.Brunswick
 
-
   const menu: Array<Menu> =
     config.bnb === Bnb.Brunswick ? menuData.brunswick : menuData.unionGables
-
 
   return {
     isBrunswick,

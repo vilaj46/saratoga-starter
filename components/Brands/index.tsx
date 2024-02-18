@@ -1,8 +1,13 @@
 import { Brand } from '../../types/brand'
 import Image from 'next/image'
 import brandsData from './brandsData'
+import { useBnb } from '../../hooks/useBnb'
 
 const Brands = () => {
+	const { isBrunswick } = useBnb()
+
+	const brands = isBrunswick ? brandsData.brunswick : brandsData.unionGables
+
 	return (
 		<section className='pt-16'>
 			<div className='container'>
@@ -12,7 +17,7 @@ const Brands = () => {
 							className='wow fadeInUp bg-gray-light dark:bg-gray-dark flex flex-wrap items-center justify-center rounded-sm px-8 py-8 sm:px-10 md:px-[50px] md:py-[40px] xl:p-[50px] 2xl:px-[70px] 2xl:py-[60px]'
 							data-wow-delay='.1s'
 						>
-							{brandsData.map((brand) => (
+							{brands.map((brand) => (
 								<SingleBrand
 									key={brand.id}
 									brand={brand}
@@ -49,4 +54,3 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
 		</div>
 	)
 }
-// Facebook, Twitter, Instagram, Pinterest, TripAdvisor

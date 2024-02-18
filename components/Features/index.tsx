@@ -1,3 +1,5 @@
+import _ from '../../public/en-us.json'
+
 import SectionTitle from '../Common/SectionTitle'
 import SingleFeature from './SingleFeature'
 import featuresData from './featuresData'
@@ -11,7 +13,7 @@ const Features = () => {
 			>
 				<div className='container'>
 					<SectionTitle
-						title='Reasons to stay with us'
+						title={_.ReasonsToStayWithUs}
 						paragraph='Easily walk to over 125 restaurants, music venues, bars, museums, galleries, and downtown shopping. Stay one and a half blocks from the oldest racetrack in the country.'
 						center
 					/>

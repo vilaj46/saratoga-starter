@@ -7,6 +7,7 @@ import menuData from './menuData'
 import { RefObject } from 'react'
 import { Bnb } from '../../types/Bnb'
 import { Menu } from '../../types/menu'
+import { useBnb } from '../../hooks/useBnb'
 
 const Navbar = ({
 	isOpen,
@@ -20,17 +21,21 @@ const Navbar = ({
 	something: RefObject<HTMLElement>
 }) => {
 	const usePathName = usePathname()
+	const { isBrunswick } = useBnb()
 
-	const navbarClassName = isOpen
+	const isOpenClassName = isOpen
 		? 'visibility top-full opacity-100'
 		: 'invisible top-[120%] opacity-0'
-
+	const background = isBrunswick
+		? 'dark:bg-brunswick-primary'
+		: 'dark:bg-ug-primary'
+	const navClassName = `navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 dark:border-body-color/20 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${isOpenClassName} ${background}`
 	const menu: Array<Menu> =
 		config.bnb === Bnb.Brunswick ? menuData.brunswick : menuData.unionGables
 
 	return (
 		<nav
-			className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${navbarClassName}`}
+			className={navClassName}
 			id='navbarCollapse'
 			ref={something}
 		>
@@ -79,7 +84,7 @@ const Navbar = ({
 											openIndex === index
 												? 'block'
 												: 'hidden'
-										}`}
+										} ${background}`}
 									>
 										{menuItem.submenu?.map(
 											(submenuItem, index) => (

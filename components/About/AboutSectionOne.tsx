@@ -53,7 +53,7 @@ const AboutSectionOne = () => {
 
 						<div className='w-full px-4 lg:w-1/2'>
 							<div
-								className='wow fadeInUp relative mx-auto aspect-video max-w-[500px] lg:mr-0'
+								className='wow fadeInUp relative mx-auto aspect-video lg:mr-0'
 								data-wow-delay='.2s'
 							>
 								<Image

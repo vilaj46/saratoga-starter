@@ -1,30 +1,48 @@
 import Image from 'next/image'
 
+import _ from '../../public/en-us.json'
 import { brunswick_hero, ug_hero } from '../../constants/images'
-import config from '../../constants/config'
-import { Bnb } from '../../types/Bnb'
 import GradientTopRight from './GradientTopRight'
 import GradientBottomLeft from './GradientBottomLeft'
-import ButtonGroup from './ButtonGroup'
+import { useBnb } from '../../hooks/useBnb'
+import { useInject } from '../../hooks/useInject'
+import routes from '../../constants/routes'
 
 const Hero = () => {
-	const isBrunswick = config.bnb === Bnb.Brunswick
+	const { isBrunswick } = useBnb()
 
 	const heading = isBrunswick
-		? 'Welcome to The Brunswick at Saratoga Bed & Breakfast'
-		: 'Award-Winning Bed & Breakfast in Saratoga Springs, New York'
+		? _.WelcomeToTheBrunswick
+		: _.AwardWinningBedAndBreakfast
+
+	const brunswickMessage = useInject(_.LocatedInTheHeart, [
+		<a
+			className='text-brunswick-primary underline'
+			href={routes.saratogaSprings}
+		>
+			{_.SaratogaSpringsNewYork}
+		</a>,
+		<a
+			className='text-brunswick-primary underline'
+			href={routes.lodging}
+		>
+			{_.LodingWithKingAndQueen}
+		</a>,
+	])
 
 	const message = isBrunswick
-		? 'Located in the heart of Saratoga Springs, New York, The Brunswick at Saratoga Bed & Breakfast is an elegant and historic inn located on Union Avenue – the most renowned thoroughfare in Saratoga. The Brunswick is a Gothic Victorian building built in 1886, offering lodging with king- and queen-bed options and updated private baths. A full breakfast is served each morning with warm-hearted hospitality.'
+		? brunswickMessage
 		: 'Experience old world hospitality at its finest at Union Gables Inn, our luxurious bed and breakfast in Saratoga Springs, New York. Built circa 1901, this Queen Anne Victorian Mansion is located in the heart of Saratoga’s Historic District known as the Magic Rectangle, one and a half blocks from the oldest racetrack in the country. Discover the romantic charm of our hotel, ideally nestled less than a ten-minute walk from countless restaurants, and downtown Saratoga gems. '
 
-	// TODO: Replace brunswick with front property image
 	const img = {
-		alt: isBrunswick ? 'Lake George' : 'Union Gables Saratoga Springs',
+		alt: isBrunswick
+			? 'Brunswick Saratoga Springs'
+			: 'Union Gables Saratoga Springs',
 		height: 327,
 		src: isBrunswick ? brunswick_hero : ug_hero,
 		width: 736,
 	}
+
 	return (
 		<>
 			<section
@@ -50,7 +68,6 @@ const Hero = () => {
 									src={img.src}
 									width={img.width}
 								/>
-								{/* <ButtonGroup /> */}
 							</div>
 						</div>
 					</div>

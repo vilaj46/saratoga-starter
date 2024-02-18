@@ -1,4 +1,6 @@
-export const brunswick_hero = '/images/brunswick/lake_george.jpg'
+// export const brunswick_hero = '/images/brunswick/lake_george.jpg'
+export const brunswick_hero = '/images/brunswick/exterior.jpg'
+export const brunswick_section2 = '/images/brunswick/mountain.jpg'
 
 export const brunswick_logo = '/images/brunswick/logo.png'
 export const brunswick_logo_dark = '/images/brunswick/logo_dark.png'

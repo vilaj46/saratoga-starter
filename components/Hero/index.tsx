@@ -7,6 +7,8 @@ import GradientBottomLeft from './GradientBottomLeft'
 import { useBnb } from '../../hooks/useBnb'
 import { useInject } from '../../hooks/useInject'
 import routes from '../../constants/routes'
+import Heading from '../Common/Heading'
+import Paragraph from '../Common/Paragraph'
 
 const Hero = () => {
 	const { isBrunswick } = useBnb()
@@ -56,12 +58,8 @@ const Hero = () => {
 								className='wow fadeInUp mx-auto max-w-[800px] text-center'
 								data-wow-delay='.2s'
 							>
-								<h1 className='mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight'>
-									{heading}
-								</h1>
-								<p className='dark:text-body-color-dark mb-12 text-base !leading-relaxed text-body-color sm:text-lg md:text-xl'>
-									{message}
-								</p>
+								<Heading>{heading}</Heading>
+								<Paragraph>{message}</Paragraph>
 								<Image
 									alt={img.alt}
 									height={img.height}

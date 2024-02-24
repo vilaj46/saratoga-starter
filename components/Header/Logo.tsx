@@ -14,7 +14,7 @@ import routes from '../../constants/routes'
 import { Bnb } from '../../types/Bnb'
 
 const Logo = ({ sticky }: { sticky: boolean }) => {
-	const logoWrapperClassName = sticky ? 'py-5 lg:py-2' : 'py-8'
+	const logoWrapperClassName = sticky ? 'px-4 py-5 lg:py-2' : 'px-4 py-8'
 
 	const isBrunswick = config.bnb === Bnb.Brunswick
 

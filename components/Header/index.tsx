@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { MouseEvent, useEffect, useRef, useState } from 'react'
 
 import _ from '../../public/en-us.json'
 import config from '../../constants/config'
@@ -12,10 +12,12 @@ import ThemeToggler from './ThemeToggler'
 import Logo from './Logo'
 import Navbar from './Navbar'
 import { useBnb } from '../../hooks/useBnb'
+import { useOutsideClick } from '../../hooks/useOutsideClick'
 
 const Header = () => {
 	// Navbar toggle
-	const navbarRef = useRef(null)
+	const navbarRef = useRef<HTMLDivElement>(null)
+
 	const [navbarOpen, setNavbarOpen] = useState(false)
 	const navbarToggleHandler = () => setNavbarOpen(!navbarOpen)
 	const navbarCloseHandler = () => setNavbarOpen(false)
@@ -29,6 +31,9 @@ const Header = () => {
 			setSticky(false)
 		}
 	}
+
+	// const ref = useOutsideClick(() => undefined)
+
 	useEffect(() => {
 		window.addEventListener('scroll', handleStickyNavbar)
 		window.addEventListener('scroll', navbarCloseHandler)
@@ -72,7 +77,7 @@ const Header = () => {
 									isOpen={navbarOpen}
 									onClick={handleSubmenu}
 									openIndex={openIndex}
-									something={navbarRef}
+									// something={ref}
 								/>
 							</div>
 							<div className='flex items-center justify-end pr-16 lg:pr-0'>

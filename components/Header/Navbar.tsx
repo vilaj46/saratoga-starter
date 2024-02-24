@@ -13,12 +13,12 @@ const Navbar = ({
 	isOpen,
 	onClick,
 	openIndex,
-	something,
-}: {
+}: // something,
+{
 	isOpen: boolean
 	onClick: (index: number) => void
 	openIndex: number
-	something: RefObject<HTMLElement>
+	// something: RefObject<HTMLElement>
 }) => {
 	const usePathName = usePathname()
 	const { isBrunswick } = useBnb()
@@ -37,13 +37,13 @@ const Navbar = ({
 		<nav
 			className={navClassName}
 			id='navbarCollapse'
-			ref={something}
+			// ref={something}
 		>
 			<ul className='block lg:flex lg:space-x-12'>
 				{menu.map((menuItem, index) => {
 					return (
 						<li
-							className='group relative'
+							className='group relative header-link-item'
 							key={menuItem.id}
 						>
 							{menuItem.path ? (
@@ -60,7 +60,7 @@ const Navbar = ({
 							) : (
 								<>
 									<p
-										className='flex cursor-pointer items-center justify-between py-2 text-base text-dark group-hover:red dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6'
+										className='flex cursor-pointer items-center justify-between py-2 text-base text-dark group-hover:red dark:text-white/70 dark:group-hover:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 header-link-item'
 										onClick={() => onClick(index)}
 									>
 										<span>{menuItem.title}</span>
@@ -80,7 +80,7 @@ const Navbar = ({
 										</span>
 									</p>
 									<div
-										className={`submenu relative left-0 top-full rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
+										className={`submenu relative left-0 top-full rounded-sm bg-white transition-[top] duration-300 group-hover:opacity-100 lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
 											openIndex === index
 												? 'block'
 												: 'hidden'

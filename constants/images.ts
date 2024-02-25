@@ -1,6 +1,10 @@
 // export const brunswick_hero = '/images/brunswick/lake_george.jpg'
 export const brunswick_hero = '/images/brunswick/exterior.jpg'
 export const brunswick_section2 = '/images/brunswick/mountain.jpg'
+export const brunswick_room_a1 = '/images/brunswick/room-a-1.jpg'
+export const brunswick_room_a2 = '/images/brunswick/room-a-2.jpg'
+export const brunswick_room_a3 = '/images/brunswick/room-a-3.jpg'
+export const brunswick_room_a4 = '/images/brunswick/room-a-4.jpg'
 
 export const brunswick_logo = '/images/brunswick/logo.png'
 export const brunswick_logo_dark = '/images/brunswick/logo_dark.png'

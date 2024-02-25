@@ -1,24 +1,47 @@
+import { ImageProps } from 'next/image'
 import _ from '../../public/en-us.json'
-import routes from '../../constants/routes'
-import Button from '../Common/Button'
-import Heading from '../Common/Heading'
-import Paragraph from '../Common/Paragraph'
+import Split from '../Common/Split'
+
+import {
+	brunswick_room_a1,
+	brunswick_room_a2,
+	brunswick_room_a3,
+	brunswick_room_a4,
+} from '../../constants/images'
 
 interface RoomsProps {
 	description: string
 	heading: string
-	href?: string
+	id: string
+	images: Array<ImageProps>
 }
 
-const Rooms = ({ description, heading, href }: RoomsProps) => {
-	const defaultHref = href ?? routes.resNexus
-
+const Rooms = ({ description, heading, id, images }: RoomsProps) => {
 	return (
-		<div>
-			<Heading size={3}>{heading}</Heading>
-			<Button micro>{_.BookNow}</Button>
-			<Paragraph>{description}</Paragraph>
-		</div>
+		<Split
+			booknow
+			description={description}
+			heading={heading}
+			id={id}
+			images={[
+				{
+					alt: 'Brunswick Room A',
+					src: brunswick_room_a1,
+				},
+				{
+					alt: 'Brunswick Room A',
+					src: brunswick_room_a2,
+				},
+				{
+					alt: 'Brunswick Room A',
+					src: brunswick_room_a3,
+				},
+				{
+					alt: 'Brunswick Room A',
+					src: brunswick_room_a4,
+				},
+			]}
+		/>
 	)
 }
 

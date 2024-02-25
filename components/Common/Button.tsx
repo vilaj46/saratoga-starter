@@ -2,10 +2,11 @@ import { useBnb } from '../../hooks/useBnb'
 
 interface ButtonProps {
 	children: string | JSX.Element | JSX.Element[]
+	className?: string
 	micro?: boolean
 }
 
-const Button = ({ children, micro }: ButtonProps) => {
+const Button = ({ children, className, micro }: ButtonProps) => {
 	// Secondary:
 	// <Link
 	// 		href=''
@@ -19,9 +20,9 @@ const Button = ({ children, micro }: ButtonProps) => {
 		: 'hover:ug-primary bg-ug-primary-hover'
 
 	const padding = micro ? 'px-2 py-1' : 'px-8 py-3'
-	const className = `uppercase ease-in-up shadow-btn hover:shadow-btn-hover rounded-sm ${padding} text-base font-medium text-white transition duration-300 hover:bg-opacity-90 md:block md:px-9 lg:px-6 xl:px-9 ${bookNowColor}`
+	const buttonClass = `uppercase ease-in-up shadow-btn hover:shadow-btn-hover rounded-sm ${padding} text-base font-medium text-white transition duration-300 hover:bg-opacity-90 md:block md:px-9 lg:px-6 xl:px-9 ${bookNowColor} ${className}`
 
-	return <button className={className}>{children}</button>
+	return <button className={buttonClass}>{children}</button>
 }
 
 export default Button

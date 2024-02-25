@@ -21,12 +21,14 @@ const Hero = () => {
 		<a
 			className='text-brunswick-primary underline'
 			href={routes.saratogaSprings}
+			key={routes.saratogaSprings}
 		>
 			{_.SaratogaSpringsNewYork}
 		</a>,
 		<a
 			className='text-brunswick-primary underline'
 			href={routes.lodging}
+			key={routes.lodging}
 		>
 			{_.LodingWithKingAndQueen}
 		</a>,

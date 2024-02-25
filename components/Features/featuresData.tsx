@@ -11,7 +11,7 @@ import { Bnb } from '../../types/Bnb'
 import config from '../../constants/config'
 import { Feature } from '../../types/feature'
 import _ from '../../public/en-us.json'
-import { useInjectStrings } from '../../hooks/useInject'
+import { injectString } from '../../utils/inject'
 
 const isBrunswick = config.bnb === Bnb.Brunswick
 const featuresData: Feature[] = [
@@ -19,7 +19,7 @@ const featuresData: Feature[] = [
 		id: 1,
 		icon: <GiCharm size={50} />,
 		title: _.HistoricCharm,
-		paragraph: useInjectStrings(_.AGothicVictorianBuilding, [
+		paragraph: injectString(_.AGothicVictorianBuilding, [
 			isBrunswick ? _.TheBrunswickAtSaratoga : _.TheUnionGablesInn,
 		]),
 	},
@@ -51,7 +51,7 @@ const featuresData: Feature[] = [
 		id: 6,
 		icon: <FaBuilding size={50} />,
 		title: _.RelaxtionAndExploration,
-		paragraph: useInjectStrings(_.WhetherYouAreInterested, [
+		paragraph: injectString(_.WhetherYouAreInterested, [
 			isBrunswick ? _.Brunswick : _.UnionGables,
 		]),
 	},

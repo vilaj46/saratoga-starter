@@ -1,7 +1,7 @@
 import jsxToString from 'jsx-to-string'
 import parse from 'html-react-parser'
 
-export const useInject = (text: string, injections: Array<JSX.Element>) => {
+export const injectNode = (text: string, injections: Array<JSX.Element>) => {
 
   let temp = text
 
@@ -12,7 +12,7 @@ export const useInject = (text: string, injections: Array<JSX.Element>) => {
   return parse(temp) // not working with Link
 }
 
-export const useInjectStrings = (text: string, injections: Array<string>) => {
+export const injectString = (text: string, injections: Array<string>) => {
 
   let temp = text
 

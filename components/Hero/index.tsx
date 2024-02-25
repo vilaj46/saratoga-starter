@@ -5,7 +5,7 @@ import { brunswick_hero, ug_hero } from '../../constants/images'
 import GradientTopRight from './GradientTopRight'
 import GradientBottomLeft from './GradientBottomLeft'
 import { useBnb } from '../../hooks/useBnb'
-import { useInject } from '../../hooks/useInject'
+import { injectNode } from '../../utils/inject'
 import routes from '../../constants/routes'
 import Heading from '../Common/Heading'
 import Paragraph from '../Common/Paragraph'
@@ -17,7 +17,7 @@ const Hero = () => {
 		? _.WelcomeToTheBrunswick
 		: _.AwardWinningBedAndBreakfast
 
-	const brunswickMessage = useInject(_.LocatedInTheHeart, [
+	const brunswickMessage = injectNode(_.LocatedInTheHeart, [
 		<a
 			className='text-brunswick-primary underline'
 			href={routes.saratogaSprings}

@@ -1,15 +1,21 @@
+import Heading from './Heading'
+
 const SectionTitle = ({
 	title,
 	paragraph,
 	width = '570px',
 	center,
 	mb = '100px',
+	size = 1,
+	underline = false,
 }: {
-	title: string | string | JSX.Element | JSX.Element[]
+	title?: string | string | JSX.Element | JSX.Element[]
 	paragraph: string | string | JSX.Element | JSX.Element[]
 	width?: string
 	center?: boolean
 	mb?: string
+	size?: number
+	underline?: boolean
 }) => {
 	return (
 		<>
@@ -20,9 +26,14 @@ const SectionTitle = ({
 				data-wow-delay='.1s'
 				style={{ maxWidth: width, marginBottom: mb }}
 			>
-				<h2 className='mb-4 text-3xl font-bold !leading-tight text-black dark:text-white sm:text-4xl md:text-[45px]'>
-					{title}
-				</h2>
+				{title && (
+					<Heading
+						underline={underline}
+						size={size}
+					>
+						{title}
+					</Heading>
+				)}
 				<p className='text-base !leading-relaxed text-body-color md:text-lg'>
 					{paragraph}
 				</p>

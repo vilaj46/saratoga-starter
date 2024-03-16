@@ -7,7 +7,7 @@ type Foot = {
 }
 type Footer = Array<Foot>
 
-export type Info = { title: string, description: string }
+export type Info = { title?: string, description: string }
 type Information = {
   homePage: Array<Info>
   policies: Array<Info>

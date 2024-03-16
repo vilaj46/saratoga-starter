@@ -75,11 +75,10 @@ const getIcon = (idx: number) => {
 	}
 }
 
-const createFeaturesData = () => {
+const createFeaturesData = (): Array<Feature> => {
 	const { reasonsToStay } = CONFIGURATION
 	return reasonsToStay.map((reason, idx) => {
 		const icon = getIcon(idx)
-
 		return {
 			id: idx,
 			icon,

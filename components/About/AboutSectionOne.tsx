@@ -46,14 +46,20 @@ const AboutSectionOne = () => {
 							>
 								<div className='mx-[-12px] flex flex-wrap '>
 									<div className='w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2'>
-										{firstHalf.map((text) => (
-											<List text={text} />
+										{firstHalf.map((text, idx) => (
+											<List
+												key={idx}
+												text={text}
+											/>
 										))}
 									</div>
 
 									<div className='w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2'>
-										{secondHalf.map((text) => (
-											<List text={text} />
+										{secondHalf.map((text, idx) => (
+											<List
+												key={idx}
+												text={text}
+											/>
 										))}
 									</div>
 								</div>

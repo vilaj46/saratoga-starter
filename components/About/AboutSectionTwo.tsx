@@ -48,9 +48,14 @@ const AboutSectionTwo = () => {
 							className='wow fadeInUp max-w-[470px]'
 							data-wow-delay='.2s'
 						>
-							{CONFIGURATION.information.homePage.map((info) => (
-								<AboutDetails {...info} />
-							))}
+							{CONFIGURATION.information.homePage.map(
+								(info, idx) => (
+									<AboutDetails
+										{...info}
+										key={idx}
+									/>
+								)
+							)}
 						</div>
 					</div>
 				</div>

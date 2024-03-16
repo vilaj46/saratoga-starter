@@ -56,8 +56,9 @@ const Footer = () => {
 							</div>
 						</div>
 
-						{CONFIGURATION.footer.map((foot) => (
+						{CONFIGURATION.footer.map((foot, idx) => (
 							<FooterList
+								key={idx}
 								heading={foot.title}
 								links={foot.urls}
 							/>

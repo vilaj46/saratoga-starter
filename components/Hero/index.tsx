@@ -35,12 +35,6 @@ const Hero = () => {
 		width: 736,
 	}
 
-	// const handleScroll = () => {
-	// 	console.log('click')
-	// 	console.log(document.getElementById('home-page-heading'))
-	// 	document.getElementById('home-page-heading')?.scrollTo()
-	// }
-
 	return (
 		<>
 			<section

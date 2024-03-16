@@ -44,7 +44,56 @@ const CONFIGURATION: Configuration = {
       },
     ],
 
-    policies: [],
+    policies: [
+      {
+        title: '',
+        description: content.POLICIES_PAGE.General_Policies,
+      },
+      {
+        title: content.POLICIES_PAGE.Racing_Season_Title,
+        description: content.POLICIES_PAGE.Racing_Season_Description,
+      },
+      {
+        title: content.POLICIES_PAGE.Special_Event_Title,
+        description: content.POLICIES_PAGE.Special_Event_Description,
+      },
+      {
+        title: content.POLICIES_PAGE.Seasonal_Title,
+        description: content.POLICIES_PAGE.Seasonal_Description,
+      },
+      {
+        title: content.POLICIES_PAGE.Winter_Title,
+        description: content.POLICIES_PAGE.Winter_Description,
+      },
+      {
+        title: content.POLICIES_PAGE.Event_Cancellation_Title,
+        description: content.POLICIES_PAGE.Event_Cancellation_Description,
+      },
+      {
+        title: content.POLICIES_PAGE.Room_Key_Title,
+        description: content.POLICIES_PAGE.Room_Key_Description,
+      },
+      {
+        title: content.POLICIES_PAGE.Smoking_Title,
+        description: content.POLICIES_PAGE.Smoking_Description,
+      },
+      {
+        title: content.POLICIES_PAGE.Pet_Title,
+        description: content.POLICIES_PAGE.Pet_Description,
+      },
+      {
+        title: content.POLICIES_PAGE.Child_Title,
+        description: content.POLICIES_PAGE.Child_Description,
+      },
+      {
+        title: content.POLICIES_PAGE.Rescheduling_Title,
+        description: content.POLICIES_PAGE.Rescheduling_Description,
+      },
+      {
+        title: content.POLICIES_PAGE.Gift_Certificate_Title,
+        description: content.POLICIES_PAGE.Gift_Certificate_Description,
+      },
+    ],
   },
 
   reasonsToStay: [
@@ -77,7 +126,7 @@ const CONFIGURATION: Configuration = {
       // Exploration
       title: content.HOME_PAGE.Reasons_Subtitle_Exploration,
       description: content.HOME_PAGE.Reasons_Description_Exploration,
-    }
+    },
   ],
 
   reviews: {
@@ -96,14 +145,16 @@ const CONFIGURATION: Configuration = {
   socialMedia: {
     // To Add: I'll have to do it initially. 
     // To Remove: leave link blank( facebook: "" )
-    facebook: "https://www.facebook.com/TheBrunswickSaratoga",
+    facebook: "",
     instagram: "https://www.instagram.com/thebrunswicksaratoga/",
     tripadvisor: "https://www.tripadvisor.com/Hotel_Review-g48562-d121722-Reviews-The_Brunswick_at_Saratoga-Saratoga_Springs_New_York.html",
   }
 } as const
 
 // Supported in content
+// inline css stylin
 // <b>[content]</b> = bold
 // <a href=[link]>[content]</a> = link
+// <br/> = line-break
 
 export default CONFIGURATION

@@ -1,15 +1,7 @@
 import { Brand } from '../../types/brand'
-import Image from 'next/image'
 import brandsData from './brandsData'
-import { useBnb } from '../../hooks/useBnb'
 
 const Brands = () => {
-	const { isBrunswick } = useBnb()
-
-	// const brands = isBrunswick ? brandsData.brunswick : brandsData.unionGables
-
-	console.log(brandsData)
-
 	return (
 		<section className='pt-16'>
 			<div className='container'>

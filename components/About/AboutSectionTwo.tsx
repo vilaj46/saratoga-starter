@@ -7,7 +7,7 @@ import CONFIGURATION from '../../WILD/configuration'
 import { Info } from '../../types/configuration'
 import { inject } from '../../utils/inject'
 
-const AboutDetails = ({ title, description }: Info) => {
+export const AboutDetails = ({ title, description }: Info) => {
 	return (
 		<div className='mb-9'>
 			<h3 className='mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl'>

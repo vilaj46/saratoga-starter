@@ -1,38 +1,26 @@
+'use client'
 import Image from 'next/image'
+import { FaComputerMouse } from 'react-icons/fa6'
 
 import _ from '../../public/en-us.json'
 import { brunswick_hero, ug_hero } from '../../constants/images'
 import GradientTopRight from './GradientTopRight'
 import GradientBottomLeft from './GradientBottomLeft'
 import { useBnb } from '../../hooks/useBnb'
-import { injectNode } from '../../utils/inject'
-import routes from '../../constants/routes'
+import { inject } from '../../utils/inject'
 import Heading from '../Common/Heading'
 import Paragraph from '../Common/Paragraph'
+
+import content from '../../WILD/content.json'
 
 const Hero = () => {
 	const { isBrunswick } = useBnb()
 
 	const heading = isBrunswick
-		? _.WelcomeToTheBrunswick
+		? content.HOME_PAGE.Title
 		: _.AwardWinningBedAndBreakfast
 
-	const brunswickMessage = injectNode(_.LocatedInTheHeart, [
-		<a
-			className='text-brunswick-primary underline'
-			href={routes.saratogaSprings}
-			key={routes.saratogaSprings}
-		>
-			{_.SaratogaSpringsNewYork}
-		</a>,
-		<a
-			className='text-brunswick-primary underline'
-			href={routes.lodging}
-			key={routes.lodging}
-		>
-			{_.LodingWithKingAndQueen}
-		</a>,
-	])
+	const brunswickMessage = inject(content.HOME_PAGE.Title_Description)
 
 	const message = isBrunswick
 		? brunswickMessage
@@ -47,34 +35,59 @@ const Hero = () => {
 		width: 736,
 	}
 
+	// const handleScroll = () => {
+	// 	console.log('click')
+	// 	console.log(document.getElementById('home-page-heading'))
+	// 	document.getElementById('home-page-heading')?.scrollTo()
+	// }
+
 	return (
 		<>
 			<section
 				id='home'
-				className='dark:bg-gray-dark relative z-10 overflow-hidden bg-white pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]'
+				className='dark:bg-gray-dark relative overflow-hidden bg-white pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]'
+				style={{
+					height: `100vh`,
+				}}
 			>
-				<div className='container'>
-					<div className='-mx-4 flex flex-wrap'>
-						<div className='w-full px-4'>
-							<div
-								className='wow fadeInUp mx-auto max-w-[800px] text-center'
-								data-wow-delay='.2s'
-							>
+				<div
+					className='absolute h-full w-full inset-x-0 inset-y-0'
+					style={{
+						backgroundImage: `url("${img.src}")`,
+						backgroundRepeat: 'no-repeat',
+						backgroundSize: 'cover',
+						backgroundPosition: 'center center',
+					}}
+				/>
+				<a
+					href='#home-page-heading'
+					className='absolute bottom-5'
+					style={{
+						left: '50%',
+						transform: 'translateX(-50%)',
+					}}
+				>
+					<FaComputerMouse
+						color='white'
+						size={32}
+					/>
+				</a>
+			</section>
+			<div className='container relative mt-16 z-20'>
+				<div className='-mx-4 flex flex-wrap'>
+					<div className='w-full px-4'>
+						<div
+							className='wow fadeInUp mx-auto max-w-[800px] text-center'
+							data-wow-delay='.2s'
+						>
+							<div id='home-page-heading'>
 								<Heading>{heading}</Heading>
-								<Paragraph>{message}</Paragraph>
-								<Image
-									alt={img.alt}
-									height={img.height}
-									src={img.src}
-									width={img.width}
-								/>
 							</div>
+							<Paragraph>{message}</Paragraph>
 						</div>
 					</div>
 				</div>
-				<GradientTopRight />
-				<GradientBottomLeft />
-			</section>
+			</div>
 		</>
 	)
 }

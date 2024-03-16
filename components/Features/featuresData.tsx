@@ -11,7 +11,8 @@ import { Bnb } from '../../types/Bnb'
 import config from '../../constants/config'
 import { Feature } from '../../types/feature'
 import _ from '../../public/en-us.json'
-import { injectString } from '../../utils/inject'
+import { inject, injectString } from '../../utils/inject'
+import CONFIGURATION from '../../WILD/configuration'
 
 const isBrunswick = config.bnb === Bnb.Brunswick
 const featuresData: Feature[] = [
@@ -56,4 +57,36 @@ const featuresData: Feature[] = [
 		]),
 	},
 ]
-export default featuresData
+
+const getIcon = (idx: number) => {
+	switch (idx) {
+		case 0:
+			return <GiCharm size={50} />
+		case 1:
+			return <FaLocationDot size={50} />
+		case 2:
+			return <FaBed size={50} />
+		case 3:
+			return <FaEgg size={50} />
+		case 4:
+			return <FaHorse size={50} />
+		default:
+			return <FaBuilding size={50} />
+	}
+}
+
+const createFeaturesData = () => {
+	const { reasonsToStay } = CONFIGURATION
+	return reasonsToStay.map((reason, idx) => {
+		const icon = getIcon(idx)
+
+		return {
+			id: idx,
+			icon,
+			title: inject(reason.title),
+			paragraph: inject(reason.description),
+		}
+	})
+}
+
+export default createFeaturesData()

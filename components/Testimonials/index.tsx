@@ -1,56 +1,41 @@
 import { Testimonial } from '../..//types/testimonial'
+import CONFIGURATION from '../../WILD/configuration'
+import { inject } from '../../utils/inject'
 import SectionTitle from '../Common/SectionTitle'
 import SingleTestimonial from './SingleTestimonial'
-
-const testimonialData: Testimonial[] = [
-	{
-		id: 1,
-		name: 'Marlyn P',
-		designation: 'Just Perfect!!!',
-		content:
-			"What a delightful, charming B&B. The staff is friendly and accommodating. Breakfast was wonderful and Mr. & Mrs. White made sure that all of my needs were met. If ever you are in the area, I would highly recommend staying here. It was spotless! So much better than the big hotels! Enjoy your stay at this lovely building built in the early 1900's.",
-		image: '/images/testimonials/auth-01.png',
-		star: 5,
-	},
-	{
-		id: 2,
-		name: 'Patricia W',
-		designation:
-			'Chad and Sara are fantastic and the B&B is perfectly located',
-		content:
-			'Had a wonderful time with my family. We had three rooms and everyone was extremely satisfied. Chad and Sara were very attentive. They made it feel like a home away from home. The B&B is perfectly located in between downtown and the race track. Already planning next year’s visit.',
-		image: '/images/testimonials/auth-02.png',
-		star: 5,
-	},
-	{
-		id: 3,
-		name: 'Stephen W',
-		designation: 'A truly lovely experience',
-		content:
-			"Took my in-laws away for a few days in Saratoga to enjoy the town and the races. Our stay at Union Gabled was among the highlights of a great excursion. He rooms are classically appointed with a Victorian feel that permeates every lovely detail. The grounds exquisite, the pool pristine, the bed rooms are spotless and beyond comfortable. The service was far beyond any experience I have had at the many B&Bs where I've stayed. Conscientious, thorough, very warm and welcoming.",
-		image: '/images/testimonials/auth-03.png',
-		star: 5,
-	},
-]
+import { FaRegFaceGrinStars } from 'react-icons/fa6'
 
 const Testimonials = () => {
+	const title = inject(CONFIGURATION.reviews?.title ?? '')
+	if (!title) {
+		return null
+	}
+	const description = inject(CONFIGURATION.reviews?.description ?? '')
+
+	const testimonialData = CONFIGURATION.reviews?.reviews?.map(
+		(review, idx) => {
+			return {
+				id: idx,
+				name: review.name,
+				designation: review.summary,
+				content: review.quote,
+				star: review.stars,
+				image: <FaRegFaceGrinStars size={32} />,
+			}
+		}
+	)
+
 	return (
 		<section className='dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28'>
 			<div className='container'>
 				<SectionTitle
-					title='What Our Visitors Say'
-					paragraph='Built in 1901 and nicknamed the ‘Sunnyside House’
-
-					Best of Saratoga Region for Six Years in a Row
-					
-					Tripadvisor Award of Excellence and Green Leader Hotel Awards
-					
-					Glorious Gardens Award and Soroptimist Best Garden Award'
+					title={title}
+					paragraph={description}
 					center
 				/>
 
 				<div className='grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3'>
-					{testimonialData.map((testimonial) => (
+					{testimonialData?.map((testimonial) => (
 						<SingleTestimonial
 							key={testimonial.id}
 							testimonial={testimonial}

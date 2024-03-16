@@ -3,6 +3,23 @@ import Image from 'next/image'
 import { brunswick_section2, ug_garden } from '../../constants/images'
 import { useBnb } from '../../hooks/useBnb'
 
+import CONFIGURATION from '../../WILD/configuration'
+import { Info } from '../../types/configuration'
+import { inject } from '../../utils/inject'
+
+const AboutDetails = ({ title, description }: Info) => {
+	return (
+		<div className='mb-9'>
+			<h3 className='mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl'>
+				{inject(title)}
+			</h3>
+			<p className='text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed'>
+				{inject(description)}
+			</p>
+		</div>
+	)
+}
+
 const AboutSectionTwo = () => {
 	const { isBrunswick } = useBnb()
 	const img = {
@@ -31,49 +48,9 @@ const AboutSectionTwo = () => {
 							className='wow fadeInUp max-w-[470px]'
 							data-wow-delay='.2s'
 						>
-							<div className='mb-9'>
-								<h3 className='mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl'>
-									Historic Mansion Retreat
-								</h3>
-								<p className='text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed'>
-									Experience luxury and charm at our
-									118-year-old mansion in Saratoga Springs,
-									featuring a classic wraparound porch and
-									airy living areas adorned with period
-									antiques. Enjoy over one acre of lush
-									gardens, fountains, and a seasonal
-									Romanesque-style pool during your stay.
-								</p>
-							</div>
-							<div className='mb-9'>
-								<h3 className='mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl'>
-									Elegant Rooms and Suites
-								</h3>
-								<p className='text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed'>
-									Indulge in comfort and style in our
-									oversized rooms and suites, each uniquely
-									decorated and equipped with modern
-									amenities. Relax by the romantic natural gas
-									fireplace, stay connected with complimentary
-									wireless Internet, and admire the curated
-									selection of period antiques throughout.
-								</p>
-							</div>
-							<div className='mb-1'>
-								<h3 className='mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl'>
-									Exceptional Hospitality
-								</h3>
-								<p className='text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed'>
-									Your stay includes a freshly-prepared
-									breakfast by our Cordon Bleu trained chef,
-									homemade baked goods in the afternoon, and
-									exemplary concierge service to ensure a
-									memorable experience. Choose from designated
-									pet-friendly accommodations, extended stay
-									options, or rooms with private patios for
-									added convenience and comfort.
-								</p>
-							</div>
+							{CONFIGURATION.information.homePage.map((info) => (
+								<AboutDetails {...info} />
+							))}
 						</div>
 					</div>
 				</div>

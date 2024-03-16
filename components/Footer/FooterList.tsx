@@ -1,7 +1,7 @@
 interface FooterListProps {
 	heading: string
 	links: Array<{
-		href: string
+		url: string
 		label: string
 	}>
 }
@@ -14,10 +14,10 @@ const FooterList = ({ heading, links }: FooterListProps) => {
 					{heading}
 				</h2>
 				<ul>
-					{links.map(({ href, label }) => (
-						<li key={href}>
+					{links.map(({ url, label }) => (
+						<li key={url}>
 							<a
-								href={href}
+								href={url}
 								className='dark:text-body-color-dark mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:hover:text-primary'
 							>
 								{label}

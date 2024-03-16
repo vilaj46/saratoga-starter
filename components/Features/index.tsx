@@ -1,10 +1,14 @@
 import _ from '../../public/en-us.json'
+import { inject } from '../../utils/inject'
 
 import SectionTitle from '../Common/SectionTitle'
 import SingleFeature from './SingleFeature'
 import featuresData from './featuresData'
+import content from '../../WILD/content.json'
 
 const Features = () => {
+	const title = inject(content.HOME_PAGE.Reasons_Title)
+	const paragraph = inject(content.HOME_PAGE.Reasons_Description)
 	return (
 		<>
 			<section
@@ -13,8 +17,8 @@ const Features = () => {
 			>
 				<div className='container'>
 					<SectionTitle
-						title={_.ReasonsToStayWithUs}
-						paragraph='Easily walk to over 125 restaurants, music venues, bars, museums, galleries, and downtown shopping. Stay one and a half blocks from the oldest racetrack in the country.'
+						title={title}
+						paragraph={paragraph}
 						center
 					/>
 

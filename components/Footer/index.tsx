@@ -6,6 +6,7 @@ import { useBnb } from '../../hooks/useBnb'
 import brandsData from '../../components/Brands/brandsData'
 import { SingleBrand } from '../Brands'
 import FooterGradient from './FooterGradient'
+import CONFIGURATION from '../../WILD/configuration'
 
 const Footer = () => {
 	const usefulLinks = [
@@ -28,7 +29,6 @@ const Footer = () => {
 
 	const { isBrunswick } = useBnb()
 
-	const brands = isBrunswick ? brandsData.brunswick : brandsData.unionGables
 	return (
 		<>
 			<footer
@@ -46,7 +46,7 @@ const Footer = () => {
 									{message}
 								</p>
 								<div className='flex items-center'>
-									{brands.map((brand) => (
+									{brandsData.map((brand) => (
 										<SingleBrand
 											key={brand.id}
 											brand={brand}
@@ -56,18 +56,25 @@ const Footer = () => {
 							</div>
 						</div>
 
-						<FooterList
+						{CONFIGURATION.footer.map((foot) => (
+							<FooterList
+								heading={foot.title}
+								links={foot.urls}
+							/>
+						))}
+
+						{/* <FooterList
 							heading='Useful Links'
 							links={usefulLinks}
-						/>
-						<FooterList
+						/> */}
+						{/* <FooterList
 							heading='Terms'
 							links={terms}
-						/>
-						<FooterList
+						/> */}
+						{/* <FooterList
 							heading='Support & Help'
 							links={supportAndHelp}
-						/>
+						/> */}
 					</div>
 
 					<div className='h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]'></div>

@@ -5,9 +5,9 @@ import {
 	FaPinterestP,
 } from 'react-icons/fa6'
 import { FaTripadvisor } from 'react-icons/fa'
-import { Brand } from '../../types/brand'
 
-// TODO: Update links for Brunswick
+import CONFIGURATION from '../../WILD/configuration'
+import { Brand } from '../../types/brand'
 
 const brandsData = {
 	brunswick: [
@@ -76,4 +76,29 @@ const brandsData = {
 	],
 }
 
-export default brandsData
+const createBrandsData = () => {
+	const facebook: Brand = {
+		id: 1,
+		name: 'Facebook',
+		href: CONFIGURATION.socialMedia.facebook,
+		image: <FaFacebookF size={50} />,
+	}
+	const instagram = {
+		id: 2,
+		name: 'Instagram',
+		href: CONFIGURATION.socialMedia.instagram,
+		image: <FaInstagram size={50} />,
+	}
+	const tripadvisor = {
+		id: 3,
+		name: 'Tripadvisor',
+		href: CONFIGURATION.socialMedia.tripadvisor,
+		image: <FaTripadvisor size={50} />,
+	}
+
+	return [facebook, instagram, tripadvisor].filter((social) => {
+		return social.href.trim().length > 0
+	})
+}
+
+export default createBrandsData()

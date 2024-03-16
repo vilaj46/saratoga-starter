@@ -2,7 +2,6 @@
 import { MouseEvent, useEffect, useRef, useState } from 'react'
 
 import _ from '../../public/en-us.json'
-import config from '../../constants/config'
 
 import Link from 'next/link'
 
@@ -12,7 +11,6 @@ import ThemeToggler from './ThemeToggler'
 import Logo from './Logo'
 import Navbar from './Navbar'
 import { useBnb } from '../../hooks/useBnb'
-import { useOutsideClick } from '../../hooks/useOutsideClick'
 
 const Header = () => {
 	// Navbar toggle
@@ -49,9 +47,11 @@ const Header = () => {
 		}
 	}
 
-	const headerStickyClassName = sticky
-		? 'dark:bg-gray-dark dark:shadow-sticky-dark fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition'
-		: 'absolute bg-transparent'
+	const headerStickyClassName =
+		'dark:bg-gray-dark dark:shadow-sticky-dark fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition'
+	// const headerStickyClassName = sticky
+	// ? 'dark:bg-gray-dark dark:shadow-sticky-dark fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition'
+	// : 'absolute bg-transparent'
 
 	const { isBrunswick } = useBnb()
 

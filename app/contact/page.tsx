@@ -13,11 +13,23 @@ const ContactPage = () => {
 	return (
 		<>
 			<Breadcrumb
-				pageName='Contact Page'
-				description='Contact Page Description'
+				pageName='Contact Us'
+				description=''
 			/>
 
-			<Contact />
+			{/* <Contact /> */}
+			<section className='container mt-16 dark:text-body-color-dark mb-12 text-base !leading-relaxed text-body-color sm:text-lg md:text-xl'>
+				<ul className='flex flex-col gap-8'>
+					<li>
+						<a href='mailto:brunswickbnb@gmail.com'>
+							Email : brunswickbnb@gmail.com
+						</a>
+					</li>
+					<li>
+						<a href='tel:518-584-6751'>Phone: (518) 584-6751</a>
+					</li>
+				</ul>
+			</section>
 		</>
 	)
 }

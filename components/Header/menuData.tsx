@@ -5,6 +5,7 @@ const MENU_IDS = {
 	HOME: 1,
 	ABOUT_US: 2,
 	POLICIES: 3,
+	CONTACT: 4,
 } as const
 
 const menuData = {
@@ -19,6 +20,12 @@ const menuData = {
 			id: MENU_IDS.POLICIES,
 			title: _.ReservationPolicies,
 			path: routes.reservationPolicies,
+			newTab: false,
+		},
+		{
+			id: MENU_IDS.CONTACT,
+			title: _.ContactUs,
+			path: routes.contact,
 			newTab: false,
 		},
 	],

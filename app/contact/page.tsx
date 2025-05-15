@@ -21,8 +21,13 @@ const ContactPage = () => {
 			<section className='container mt-16 dark:text-body-color-dark mb-12 text-base !leading-relaxed text-body-color sm:text-lg md:text-xl'>
 				<ul className='flex flex-col gap-8'>
 					<li>
+						<strong>Address:</strong><br />
+						143 Union Avenue,<br />
+						Saratoga Springs, NY 12866
+					</li>
+					<li>
 						<a href='mailto:brunswickbnb@gmail.com'>
-							Email : brunswickbnb@gmail.com
+							Email: brunswickbnb@gmail.com
 						</a>
 					</li>
 					<li>
@@ -30,8 +35,4 @@ const ContactPage = () => {
 					</li>
 				</ul>
 			</section>
-		</>
-	)
-}
-
-export default ContactPage
+		<

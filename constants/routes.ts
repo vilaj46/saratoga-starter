@@ -15,7 +15,7 @@ export default {
   petFriendly: '/pet-friendly',
   promotions: '/promotions',
   reservationPolicies: '/reservation-policies',
-  resNexus: 'https://resnexus.com/resnexus/reservations/book/5888F13B-7306-4082-89C2-B6F42CC9CD92/?NewSearch=1&roomClass=5',
+  resNexus: 'https://resnexus.com/resnexus/reservations/book/E56DE62E-3D4B-487A-AD23-2037884AF770/?NewSearch=1',
   reviews: '/reviews',
   sacredUnion: '/sacred-union',
   saratogaEvents: '/events',
